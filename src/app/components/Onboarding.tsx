@@ -91,7 +91,7 @@ export default function Onboarding() {
       <motion.div
         initial={{ y: 100 }}
         animate={{ y: 0 }}
-        className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#D0FADA] via-[#D0FADA] to-transparent"
+        className="sticky bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#D0FADA] via-[#D0FADA] to-transparent"
       >
         <button
           onClick={handleContinue}
