@@ -96,7 +96,6 @@ export default function Dashboard() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-black text-[#4C2058]">Dobrý večer! 👋</h1>
-            <p className="text-[#4C2058]/60 mt-2 text-base">Co dnes vytvoříte?</p>
           </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
