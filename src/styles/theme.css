@@ -284,6 +284,8 @@
       0 0 120px rgba(76, 32, 88, 0.3);
     position: relative;
     z-index: 10;
+    /* This creates a new containing block so fixed elements stay inside the frame */
+    transform: translateZ(0);
   }
 
   /* Hide scrollbar inside phone frame */
