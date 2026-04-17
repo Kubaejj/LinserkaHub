@@ -220,3 +220,79 @@
     scrollbar-color: #4C2058 transparent;
   }
 }
+
+/* ===== Desktop Phone Frame ===== */
+.desktop-wrapper {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.phone-frame {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* On screens wider than phone size, show as phone mockup */
+@media (min-width: 640px) {
+  .desktop-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1545 30%, #4C2058 60%, #2d1545 100%);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative background blobs */
+  .desktop-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(208, 250, 218, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .desktop-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(76, 32, 88, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .phone-frame {
+    width: 390px;
+    max-height: 844px;
+    min-height: 844px;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    overflow-y: auto;
+    box-shadow:
+      0 0 0 8px #1a0a2e,
+      0 0 0 10px rgba(208, 250, 218, 0.2),
+      0 25px 80px rgba(0, 0, 0, 0.5),
+      0 0 120px rgba(76, 32, 88, 0.3);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Hide scrollbar inside phone frame */
+  .phone-frame::-webkit-scrollbar {
+    display: none;
+  }
+
+  .phone-frame {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
