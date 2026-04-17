@@ -26,7 +26,7 @@ import {
   Edit3
 } from 'lucide-react';
 
-const userInterests = [
+const defaultInterests = [
   '🎨 Grafický design',
   '✏️ Ilustrace',
   '🔤 Typografie',
@@ -90,6 +90,10 @@ export default function UserProfile() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'events' | 'achievements'>('events');
   const [showSettings, setShowSettings] = useState(false);
+
+  // Read interests from localStorage (set during onboarding)
+  const savedInterests = localStorage.getItem('userInterests');
+  const userInterests: string[] = savedInterests ? JSON.parse(savedInterests) : defaultInterests;
 
   const unlockedCount = achievements.filter(a => a.unlocked).length;
 

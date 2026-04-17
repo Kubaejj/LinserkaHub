@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'motion/react';
-import { Sparkles } from 'lucide-react';
 
 const interests = [
   { id: 1, emoji: '🎨', label: 'Grafický design' },
@@ -26,6 +25,11 @@ export default function Onboarding() {
   };
 
   const handleContinue = () => {
+    // Save selected interest labels to localStorage for profile
+    const selectedLabels = interests
+      .filter(i => selectedInterests.includes(i.id))
+      .map(i => `${i.emoji} ${i.label}`);
+    localStorage.setItem('userInterests', JSON.stringify(selectedLabels));
     navigate('/dashboard');
   };
 
@@ -37,11 +41,7 @@ export default function Onboarding() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-10"
         >
-          <p className="font-brand text-[#4C2058] text-3xl mb-6">Linserka Hub</p>
-          <div className="inline-flex items-center gap-2 bg-[#4C2058] px-6 py-3 rounded-full mb-8">
-            <Sparkles className="w-5 h-5 text-white" />
-            <span className="text-white font-bold">Krok 1 ze 3</span>
-          </div>
+          <p className="font-brand text-[#4C2058] text-3xl mb-8">Linserka Hub</p>
           <h1 className="text-4xl font-black mb-5 leading-tight text-[#4C2058]">
             Jaké jsou vaše<br />hlavní zájmy?
           </h1>
